@@ -27,27 +27,40 @@ st.markdown(
 # Input fields on the main page instead of the sidebar
 st.header('Input Parameters')
 
-# Define input fields
-crop_type = st.selectbox('CROP TYPE', options=['BANANA', 'BEAN', 'CABBAGE', 'CITRUS', 'COTTON', 'MAIZE'])
+# Define input fields with all crop types
+crop_type = st.selectbox('CROP TYPE', options=[
+    'BANANA', 'SOYABEAN', 'CABBAGE', 'POTATO', 'RICE', 'MELON',
+    'MAIZE', 'CITRUS', 'BEAN', 'WHEAT', 'MUSTARD', 'COTTON',
+    'SUGARCANE', 'TOMATO', 'ONION'
+])
 soil_type = st.selectbox('SOIL TYPE', options=['DRY', 'WET'])
 region = st.selectbox('REGION', options=['DESERT', 'SEMI ARID', 'SEMI HUMID'])
-temperature = st.selectbox('TEMPERATURE in degrees', options=['20', '21-30', '30-40', '40-50'])
+temperature = st.selectbox('TEMPERATURE in degrees', options=['10-20', '21-30', '30-40', '40-50'])
 weather_condition = st.selectbox('WEATHER CONDITION', options=['NORMAL', 'SUNNY', 'WINDY', 'RAINY'])
 
-# Encode input values
+# Encode input values for all crop types
 input_values = {
     'CROP TYPE_BANANA': 1 if crop_type == 'BANANA' else 0,
-    'CROP TYPE_BEAN': 1 if crop_type == 'BEAN' else 0,
+    'CROP TYPE_SOYABEAN': 1 if crop_type == 'SOYABEAN' else 0,
     'CROP TYPE_CABBAGE': 1 if crop_type == 'CABBAGE' else 0,
-    'CROP TYPE_CITRUS': 1 if crop_type == 'CITRUS' else 0,
-    'CROP TYPE_COTTON': 1 if crop_type == 'COTTON' else 0,
+    'CROP TYPE_POTATO': 1 if crop_type == 'POTATO' else 0,
+    'CROP TYPE_RICE': 1 if crop_type == 'RICE' else 0,
+    'CROP TYPE_MELON': 1 if crop_type == 'MELON' else 0,
     'CROP TYPE_MAIZE': 1 if crop_type == 'MAIZE' else 0,
+    'CROP TYPE_CITRUS': 1 if crop_type == 'CITRUS' else 0,
+    'CROP TYPE_BEAN': 1 if crop_type == 'BEAN' else 0,
+    'CROP TYPE_WHEAT': 1 if crop_type == 'WHEAT' else 0,
+    'CROP TYPE_MUSTARD': 1 if crop_type == 'MUSTARD' else 0,
+    'CROP TYPE_COTTON': 1 if crop_type == 'COTTON' else 0,
+    'CROP TYPE_SUGARCANE': 1 if crop_type == 'SUGARCANE' else 0,
+    'CROP TYPE_TOMATO': 1 if crop_type == 'TOMATO' else 0,
+    'CROP TYPE_ONION': 1 if crop_type == 'ONION' else 0,
     'SOIL TYPE_DRY': 1 if soil_type == 'DRY' else 0,
     'SOIL TYPE_WET': 1 if soil_type == 'WET' else 0,
     'REGION_DESERT': 1 if region == 'DESERT' else 0,
     'REGION_SEMI ARID': 1 if region == 'SEMI ARID' else 0,
     'REGION_SEMI HUMID': 1 if region == 'SEMI HUMID' else 0,
-    'TEMPERATURE_20': 1 if temperature == '20' else 0,
+    'TEMPERATURE_20': 1 if temperature == '10-20' else 0,
     'TEMPERATURE_21-30': 1 if temperature == '21-30' else 0,
     'TEMPERATURE_30-40': 1 if temperature == '30-40' else 0,
     'TEMPERATURE_40-50': 1 if temperature == '40-50' else 0,
