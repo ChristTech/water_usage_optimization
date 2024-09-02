@@ -6,10 +6,14 @@ import joblib
 model = joblib.load('water_requirement_model.pkl')
 column_names = joblib.load('column_names.pkl')
 
-# Streamlit app title
-st.title('Water Requirement Predictor')
+# Streamlit app title with branding
+st.title('Water Requirement Predictor by CHRISTTech')
 
-# CSS to add a background image
+# Add a subheader or introduction with variations of your name
+st.subheader("Welcome to CHRISTTech's Water Requirement Prediction App")
+st.write("This tool is brought to you by CHRISTTech, alias CHRISTTech Innovations")
+
+# CSS to add a background image and custom footer with your name
 st.markdown(
     """
     <style>
@@ -19,7 +23,21 @@ st.markdown(
         background-size: cover;
         background-position: center;
     }
+    footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+        color: #333;
+    }
     </style>
+    <footer>
+        <p>Powered by CHRISTTech | CHRISTTech Innovations | CHRIST Technologies</p>
+    </footer>
     """,
     unsafe_allow_html=True
 )
