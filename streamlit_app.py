@@ -33,7 +33,7 @@ crop_type = st.selectbox('CROP TYPE', options=[
     'MAIZE', 'CITRUS', 'BEAN', 'WHEAT', 'MUSTARD', 'COTTON',
     'SUGARCANE', 'TOMATO', 'ONION'
 ])
-soil_type = st.selectbox('SOIL TYPE', options=['DRY', 'WET'])
+soil_type = st.selectbox('SOIL CONDITION', options=['DRY', 'WET'])
 region = st.selectbox('REGION', options=['DESERT', 'SEMI ARID', 'SEMI HUMID'])
 temperature = st.selectbox('TEMPERATURE in degrees', options=['10-20', '21-30', '30-40', '40-50'])
 weather_condition = st.selectbox('WEATHER CONDITION', options=['NORMAL', 'SUNNY', 'WINDY', 'RAINY'])
