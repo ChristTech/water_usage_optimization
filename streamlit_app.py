@@ -38,6 +38,9 @@ region = st.selectbox('REGION', options=['DESERT', 'SEMI ARID', 'SEMI HUMID'])
 temperature = st.selectbox('TEMPERATURE in degrees', options=['10-20', '21-30', '30-40', '40-50'])
 weather_condition = st.selectbox('WEATHER CONDITION', options=['NORMAL', 'SUNNY', 'WINDY', 'RAINY'])
 
+# Add a field for the crop growth stage
+growth_stage = st.selectbox('GROWTH STAGE', options=['Germination', 'Vegetative', 'Flowering', 'Maturity'])
+
 # Encode input values for all crop types
 input_values = {
     'CROP TYPE_BANANA': 1 if crop_type == 'BANANA' else 0,
@@ -73,13 +76,24 @@ input_values = {
 # Ensure all columns are present
 input_df = pd.DataFrame([input_values], columns=column_names).fillna(0)
 
+# Growth stage multipliers
+growth_stage_multipliers = {
+    'Germination': 0.8,
+    'Vegetative': 1.0,
+    'Flowering': 1.2,
+    'Maturity': 0.9
+}
+
 # Prediction
 if st.button('Predict'):
     prediction = model.predict(input_df)[0]
 
+    # Adjust prediction based on the growth stage multiplier
+    adjusted_prediction = prediction * growth_stage_multipliers[growth_stage]
+
     # Create an expander for the result
     with st.expander("Prediction Result", expanded=True):
         st.markdown(
-            f"<h2 style='text-align: center; color: black; font-size: 30px;'>Predicted Water Requirement: {prediction:.2f} litres</h2>",
+            f"<h2 style='text-align: center; color: black; font-size: 30px;'>Predicted Water Requirement: {adjusted_prediction:.2f} litres</h2>",
             unsafe_allow_html=True
         )
